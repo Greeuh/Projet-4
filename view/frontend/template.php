@@ -8,5 +8,8 @@
         
     <body>
         <?= $content ?>
+        <h4>
+        <p><a href="admin.php">Accéder au panneau d'administration</a></p>
+    </h4>
     </body>
 </html>
