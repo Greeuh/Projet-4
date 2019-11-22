@@ -6,13 +6,19 @@
 <h2>Les derniers billets du blog :</h2>
 
 <?php
-while ($data = $posts->fetch()) 
-{
-?>
+while ($data = $posts->fetch()) {
+    ?>
     <div class="news">
         <h3>
-            <?= strip_tags($data['title']) ?>
-            <em><?= $data['creation_date_fr'] ?></em>
+            <?= strip_tags($data['title']) ?><br>
+            <em>
+                <?= $data['creation_date_fr']; ?>
+            </em>
+            <?php
+                if ($data['modify_date_fr'] != NULL) {
+                    echo ' - Mise à jour le : <em>' . $data['modify_date_fr'] . '</em>';
+                };
+                ?>
         </h3>
 
         <p>

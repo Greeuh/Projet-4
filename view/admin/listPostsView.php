@@ -10,14 +10,21 @@ while ($data = $posts->fetch())
 ?>
     <div class="news">
         <h3>
-            <?= strip_tags($data['title']) ?>
-            <em><?= $data['creation_date_fr'] ?></em>
+        <?= strip_tags($data['title']) ?><br>
+            <em>
+                <?php echo 'Crée le : ' . $data['creation_date_fr']; ?>
+            </em><br>
+            <?php
+                if ($data['modify_date_fr'] != NULL) {
+                    echo 'Dernière mise à jour le : <em>' . $data['modify_date_fr'] . '</em>';
+                };
+                ?>
         </h3>
 
         <p style="display:flex; justify-content:space-between; align-items:center;">
             <b><a href="admin.php?action=showModifyPost&amp;id=<?= $data['id'] ?>">Modifier</a></b>
-            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir les commentaires</a>
-            <b>Supprimer</b>
+            <a href="admin.php?action=post&amp;id=<?= $data['id'] ?>">Voir les commentaires</a>
+            <b><a href="admin.php?action=deletePost&amp;id=<?= $data['id'] ?>">Supprimer</a></b>
         </p>
     </div>
 <?php

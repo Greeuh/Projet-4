@@ -6,8 +6,15 @@
 
     <div class="news">
         <h3>
-            <?= strip_tags($post['title']) ?>
-            <em><?= $post['creation_date_fr'] ?></em>
+        <?= strip_tags($post['title']) ?><br>
+            <em>
+                <?= $post['creation_date_fr']; ?>
+            </em>
+            <?php
+                if ($post['modify_date_fr'] != NULL) {
+                    echo ' - Mise à jour le : <em>' . $post['modify_date_fr'] . '</em>';
+                };
+                ?>
         </h3>
 
         <p>
@@ -21,7 +28,7 @@
     while ($comment = $comments->fetch())
     {
     ?>
-        <p><strong><?= strip_tags($comment['author']) ?> </strong><?= $comment['comment_date_fr'] ?></p>
+        <p><strong><?= strip_tags($comment['author']) ?> </strong><?= $comment['comment_date_fr'] ?><?php if ($comment['modify_date_fr'] != NULL){ echo '<br>Mis à jour le : ' . $comment['modify_date_fr'];} ?></p>
         <p><?= nl2br(strip_tags($comment['comment'])) ?></p>
     <?php
     }

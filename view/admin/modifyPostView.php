@@ -4,7 +4,7 @@
 <h1>Modification d'un billet existant</h1>
 
 <div id="addPost">
-    <form action="admin.php?action=modifyPost" method="post">
+    <form action="admin.php?action=modifyPost&amp;id=<?= $post['id'] ?>" method="post">
         <div>
             <label for="postTitle">Titre :</label><br>
             <input type="text" id="postTitle" name="postTitle" placeholder="Titre du billet" value="<?= $post['title'] ?>">
