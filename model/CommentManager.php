@@ -6,7 +6,7 @@ class CommentManager extends Manager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, is_reported, DATE_FORMAT(comment_date, \'le %d/%m/%Y à %H:%i:%s\') AS comment_date_fr, DATE_FORMAT(modify_date, \'%d/%m/%Y à %Hh%i\') AS modify_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, is_reported, DATE_FORMAT(comment_date, \'%H:%i:%s\') AS comment_date_hr, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_fr, DATE_FORMAT(modify_date, \'%d/%m/%Y à %Hh%i\') AS modify_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -53,7 +53,7 @@ class CommentManager extends Manager
     public function getReportedComments()
     {
         $db = $this->dbConnect();
-        $comments = $db->query('SELECT post_id, id, author, comment, is_reported, DATE_FORMAT(comment_date, \'le %d/%m/%Y à %H:%i:%s\') AS comment_date_fr, DATE_FORMAT(modify_date, \'%d/%m/%Y à %Hh%i\') AS modify_date_fr FROM comments WHERE is_reported = 1 ORDER BY comment_date DESC');
+        $comments = $db->query('SELECT post_id, id, author, comment, is_reported, DATE_FORMAT(comment_date, \'%H:%i:%s\') AS comment_date_hr, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_fr, DATE_FORMAT(modify_date, \'%d/%m/%Y à %Hh%i\') AS modify_date_fr FROM comments WHERE is_reported = 1 ORDER BY comment_date DESC');
 
         return $comments;
     }

@@ -1,4 +1,4 @@
-<?php $title = 'Mon blog'; ?>
+<?php $title = 'Erreur' ?>
 
 <?php ob_start(); ?>
 
@@ -6,7 +6,14 @@
 
     <?php require('header.php'); ?>
 
-    <main class="container my-4">
+    <div class="text-center my-5">
+        <h2 class="h1">Une erreur est arrivée !</h2>
+                <h4 class="my-5 mx-3">Pas de panique, vous pouvez retrouver les informations à propos de cette dernière juste en dessous :</h4>
+                <h5 class="py-5 border-top"><?= 'Erreur : ' . $error ?></h5>
+                <h4 class="border-top pt-5">En attendant vous pouvez retrouver les deux derniers articles publiés :</h4>
+    </div>
+
+    <section class="container my-4">
         <div class="row">
             <?php
             while ($data = $posts->fetch()) {
@@ -44,13 +51,15 @@
             $posts->closeCursor();
             ?>
         </div>
-    </main>
+    </section>
 
     <footer class="page-footer" id="sticky-footer">
         <h2 class="h6 text-muted footer-copyright font-weight-light text-center p-2 m-1 border-top">
             <strong>&copy; Billet simple pour l'Alaska</strong>
         </h2>
     </footer>
+
+
     <?php $content = ob_get_clean(); ?>
 
     <?php require('template.php'); ?>

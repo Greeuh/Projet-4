@@ -51,6 +51,13 @@ if ($_SESSION['admin'] == 1) {
                     throw new Exception('Aucun identifiant de billet envoyé');
                 }
             }
+            if ($_GET['action'] == 'deleteComment') {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    deleteComment($_GET['id']);
+                } else {
+                    throw new Exception('Aucun identifiant de commentaire envoyé');
+                }
+            }
             if ($_GET['action'] == 'modifyPost') {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     if (!empty($_POST['postTitle']) && !empty($_POST['content'])) {

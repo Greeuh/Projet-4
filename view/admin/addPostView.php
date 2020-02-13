@@ -1,26 +1,25 @@
 <?php $title = "Ajout d'un billet" ?>
 
 <?php ob_start(); ?>
-<h1>Ajout d'un nouveau billet</h1>
+<body class="greybg">
 
-<div id="addPost">
-    <h4 style="text-align:center;">Ajouter un nouveau billet</h4>
+    <?php require('header.php'); ?>
+<h2 class="text-center m-5">Ajout d'un nouveau billet</h2>
+
+<div>
     <form action="admin.php?action=addPost" method="post">
-        <div>
-            <label for="postTitle">Titre :</label><br>
-            <input type="text" id="postTitle" name="postTitle" placeholder="Titre du billet">
-        </div><br>
-        <div>
-            <label for="content">Votre article :</label><br>
-            <textarea id="content" name="content"></textarea>
+        <div class="form-group">
+            <input type="text" id="postTitle" name="postTitle" placeholder="Titre du billet" class="w-50 m-auto form-control form-control-lg text-center" required autofocus>
         </div>
-        <div>
-            <input type="submit">
+        <div class="form-group m-3">
+            <textarea id="content" name="content" class="form-control"></textarea>
+        </div>
+        <div class="text-center mt-3">
+            <input type="submit" value="Publier votre nouveau billet" class="btn btn-primary">
         </div>
     </form>
 </div>
 
-<p><a href="admin.php">Retour au panneau d'administration.</a></p>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

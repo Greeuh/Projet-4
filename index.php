@@ -1,5 +1,5 @@
 <?php
-if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 require('controller/frontend.php');
 
 try {
@@ -9,6 +9,13 @@ try {
         }
         if ($_GET['action'] == 'register') {
             register();
+        }
+        if ($_GET['action'] == 'profil') {
+            if (isset($_GET['user']) && $_GET['user'] != NULL) {
+                getProfil($_GET['user']);
+            } else {
+                throw new Exception('L\'utilisateur n\'a pas été reconnu.');
+            }
         }
         if ($_GET['action'] == 'createUser') {
             if (isset($_POST['pseudo']) && $_POST['password'] && $_POST['verifpassword']  && $_POST['email']) {
@@ -67,5 +74,5 @@ try {
         listPosts();
     }
 } catch (Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
+    listTwoPostsForError($e->getMessage());
 }

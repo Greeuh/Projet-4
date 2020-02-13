@@ -58,7 +58,7 @@ function unreportComment($commentId)
 
 function listReportedComments()
 {
-    $commentManager = new commentManager();
+    $commentManager = new CommentManager();
     $comments = $commentManager->getReportedComments();
 
     require('view/admin/reportedCommentsView.php');
@@ -73,6 +73,19 @@ function deletePost($postId)
     if ($deletedPost === false) {
         throw new Exception('Impossible de supprimer ce billet !');
     } else {
+        header('Location: admin.php');
+    }
+}
+
+function deleteComment($commentId)
+{
+    $postAdmin = new PostAdmin();
+
+    $deletedComment = $postAdmin->deleteComment($commentId);
+
+    if ($deletedComment === false) {
+        throw new Exception('Impossible de supprimer ce commentaire !');
+    }else{
         header('Location: admin.php');
     }
 }

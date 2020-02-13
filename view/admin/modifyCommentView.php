@@ -1,26 +1,27 @@
 <?php $title = "Modification d'un commentaire" ?>
 
 <?php ob_start(); ?>
-<h1>Modification d'un commentaire</h1>
+<body class="greybg">
+<?php require('header.php'); ?>
+<h2 class="text-center m-5">Modification d'un commentaire</h2>
 
 <div id="modifyComment">
     <form action="admin.php?action=modifyComment&amp;id=<?= $comment['id'] ?>&amp;post=<?= $_GET['post'] ?>" method="post">
-        <div>
-            <label for="commentAuthor">Auteur : </label>
+        <div class="text-center mb-5">
+            <label for="commentAuthor">Auteur du commentaire : </label>
             <b><?= $comment['author'] ?></b>
-        </div><br>
-        <div>
-            <label for="comment">Le commentaire :</label><br>
-            <textarea id="comment" name="comment" rows="14" cols="75"><?= $comment['comment'] ?></textarea>
         </div>
-        <br>
-        <div>
-            <input type="submit" value="Modifier le commentaire">
+
+        <div class="m-auto text-center">
+            <textarea id="comment" name="comment" class="m-auto w-75" rows="20"><?= $comment['comment'] ?></textarea>
+        </div>
+
+        <div class="text-center mt-3">
+            <input type="submit" value="Modifier le commentaire" class="btn btn-primary">
         </div>
     </form>
 </div>
 
-<p><a href="admin.php?action=post&amp;id=<?= $comment['post_id'] ?>">Retour à la liste des commentaires</a></p>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

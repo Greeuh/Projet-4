@@ -3,25 +3,20 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.antoineparriaud.fr/images/reindeer.ico">
     <title><?= $title ?></title>
     <link href="public/css/style.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/85e796141c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/85e796141c.js"></script>
 </head>
 
-<body>
-    <?php if (isset($_SESSION['id']) and isset($_SESSION['pseudo'])) {
-        echo 'Bonjour ' . $_SESSION['pseudo'];
-        echo '<br><a href="index.php?action=disconnect">Se déconnecter</a>';
-    } else { ?>
-        <p><a href="index.php?action=login">Se connecter</a></p>
-        <p><a href="index.php?action=register">S'enregistrer</a></p>
-    <?php } ?>
-    <?= $content ?>
-    <h4>
-        <?php if ($_SESSION != NULL && $_SESSION['admin'] == 1) { ?>
-        <p><a href="admin.php">Accéder au panneau d'administration</a></p>
-        <?php } ?>
-    </h4>
+
+<?= $content ?>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

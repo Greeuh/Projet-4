@@ -38,4 +38,13 @@ class PostAdmin extends Manager
 
         return $deletedPost;
     }
+
+    public function deleteComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $comment = $db->prepare('DELETE comments FROM comments WHERE id=?');
+        $deletedComment = $comment->execute(array($commentId));
+
+        return $deletedComment;
+    }
 }

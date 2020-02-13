@@ -1,26 +1,26 @@
 <?php $title = $post['title'] ?>
 
 <?php ob_start(); ?>
-<h1>Modification d'un billet existant</h1>
+<body class="greybg">
 
-<div id="addPost">
+    <?php require('header.php'); ?>
+<h2 class="text-center m-5">Modification d'un billet existant</h2>
+
+<div>
     <form action="admin.php?action=modifyPost&amp;id=<?= $post['id'] ?>" method="post">
-        <div>
-            <label for="postTitle">Titre :</label><br>
-            <input type="text" id="postTitle" name="postTitle" placeholder="Titre du billet" value="<?= $post['title'] ?>">
-        </div><br>
-        <div>
-            <label for="content">Votre article :</label><br>
-            <textarea id="content" name="content"><?= $post['content'] ?></textarea>
+        <div class="form-group mb-5">
+            <input type="text" id="postTitle" name="postTitle" placeholder="Titre du billet" value="<?= $post['title'] ?>" class="w-50 m-auto form-control form-control-lg text-center" required>
         </div>
-        <br>
-        <div>
-            <input type="submit" value="Modifier l'article">
+        <div class="form-group m-3">
+            <textarea id="content" name="content" class="form-control" required><?= $post['content'] ?></textarea>
+        </div>
+        
+        <div class="text-center mt-3">
+            <input type="submit" value="Modifier le billet" class="btn btn-primary">
         </div>
     </form>
 </div>
 
-<p><a href="admin.php">Retour au panneau d'administration.</a></p>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
