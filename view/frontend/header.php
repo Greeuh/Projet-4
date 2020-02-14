@@ -22,14 +22,14 @@
                         <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <?php 
+                        <?php
                         if ($_SESSION != NULL && $_SESSION['admin'] == 1) { ?>
                             <a class="dropdown-item" href="admin.php"><i class="fas fa-cog"></i> Administration</a>
                         <?php }
                         if (isset($_SESSION['id']) and isset($_SESSION['pseudo'])) { ?>
                             <a class="dropdown-item" href="index.php?action=profil&amp;user=<?= $_SESSION['pseudo'] ?>">Voir mon profil</a>
                             <a class="dropdown-item" href="index.php?action=disconnect"><b>Se déconnecter</b></a>
-                            <?php } else { ?>
+                        <?php } else { ?>
                             <a class="dropdown-item" href="index.php?action=login">Se connecter</a>
                             <a class="dropdown-item" href="index.php?action=register">Créer un compte</a>
                         <?php }; ?>

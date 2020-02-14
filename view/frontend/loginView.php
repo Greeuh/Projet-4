@@ -28,7 +28,7 @@
         </form>
     </div>
     <p class="mt-5 mb-3 text-center font-weight-light"><a href="index.php?action=register" class="text-muted">Vous n'avez pas de compte ?</a></p>
-    
+
     <?php $content = ob_get_clean(); ?>
 
     <?php require('template.php'); ?>

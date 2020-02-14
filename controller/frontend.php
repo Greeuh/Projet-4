@@ -118,8 +118,9 @@ function getProfil($author)
     $usermanager = new UserManager();
 
     $getCommentsForProfile = $usermanager->getCommentsForProfile($author);
+    $getInfosForProfile = $usermanager->getInfosForProfile($author);
 
-    if ($getCommentsForProfile === false) {
+    if ($getInfosForProfile === false) {
         throw new Exception('Impossible de trouver cet utilisateur.');
     } else {
         require('view/frontend/profileView.php');

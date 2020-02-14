@@ -43,5 +43,16 @@ class UserManager extends Manager
 
         return $getProfilInfos;
     }
+
+    public function getInfosForProfile($userName)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT pseudo, email, DATE_FORMAT(register_date, \'%d/%m/%Y à %Hh%i\') AS register_date_fr FROM users WHERE pseudo = ?');
+        $req->execute(array($userName));
+
+        $getUserInfo = $req->fetch();
+
+        return $getUserInfo;
+    }
     
 }

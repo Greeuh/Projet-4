@@ -5,25 +5,40 @@
 <body class="greybg">
 
     <?php require('header.php'); ?>
-    <h2 class="text-center my-4">Panneau d'administration</h2>
 
-    <a href="admin.php?action=showAddPost" class="m-5">
-        <div class="w-50 m-auto text-center border border-primary rounded-pill bg-white p-3">
-            <p class="my-2 p-2"><b>Ajouter un nouveau billet</b></p>
-        </div>
-    </a>
+    <div class="content">
+        <h2 class="text-center my-4">Panneau d'administration</h2>
 
-    <a href="admin.php?action=showListPosts" class="m-5">
-        <div class="w-50 m-auto text-center border border-primary rounded-pill bg-white p-3">
-            <p class="my-2 p-2"><b>Gestion des billets existants</b></p>
+        <div class="w-75 mx-auto my-5 text-center border border-primary rounded-pill bg-white">
+            <a href="admin.php?action=showAddPost">
+                <div class="p-3">
+                    <p class="my-2 p-2"><b>Ajouter un nouveau billet</b></p>
+                </div>
+            </a>
         </div>
-    </a>
 
-    <a href="admin.php?action=showReportedComments" class="m-5">
-        <div class="w-50 m-auto text-center border border-primary rounded-pill bg-white p-3">
-            <p class="my-2 p-2"><b>Liste des commentaires signalés</b></p>
+        <div class="w-75 mx-auto my-5 text-center border border-primary rounded-pill bg-white">
+            <a href="admin.php?action=showListPosts">
+                <div class="p-3">
+                    <p class="my-2 p-2"><b>Gestion des billets existants</b></p>
+                </div>
+            </a>
         </div>
-    </a>
+
+        <div class="w-75 mx-auto my-5 text-center border border-primary rounded-pill bg-white">
+            <a href="admin.php?action=showReportedComments">
+                <div class="p-3">
+                    <p class="my-2 p-2"><b>Liste des commentaires signalés</b></p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <footer class="page-footer sticky-footer" >
+        <h2 class="h6 text-muted footer-copyright font-weight-light text-center p-2 m-1 border-top">
+            <strong>&copy; Billet simple pour l'Alaska</strong>
+        </h2>
+    </footer>
 
     <?php $content = ob_get_clean(); ?>
 
